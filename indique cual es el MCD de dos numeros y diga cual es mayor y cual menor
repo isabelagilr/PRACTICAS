@@ -1,0 +1,41 @@
+// saque el MCD de dos numeros y diga cual es mayor y menor.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main()
+{
+int n,d,s,a,b,may,men,c1,c2,numero,primo;
+
+cout<<"ingrese dos numero"<<endl;
+cin>>a;
+cin>>b;
+
+if(a>b)
+	{may=a;
+	men=b;}
+else
+	{men=a;
+	may=b;}
+cout<< "el mayor es"<<may<<endl;
+cout<< "el menor es"<<men<<endl;
+c1=2;
+c2=1;
+do
+{if((may%c1==0) && (men%c1==0))
+	{c2=c2*c1;
+	may=may/c1;
+	men=men/c1;
+	}
+else
+	c1++;
+	
+}while(c1<=men);
+cout<<"el MCD es:"<<c2<<endl;
+getch();
+}
