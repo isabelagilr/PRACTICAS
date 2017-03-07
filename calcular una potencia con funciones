@@ -1,0 +1,31 @@
+// potencia.cpp : Defines the entry point for the console application.
+//
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+float poten(float b, float p);
+
+void main()
+{
+	float b, p, pot;
+	cout<<"INGRESE LA BASE: ";
+	cin>>b;
+	cout<<"INGRESE LA POTENCIA: ";
+	cin>>p;
+	pot=poten(b,p);
+	cout<<"el resultado es: "<<pot;
+	getch();
+}
+
+float poten(float b, float p)
+{
+	float pot;
+	pot=powf(b,p);
+	return (pot);
+}
