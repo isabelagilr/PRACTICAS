@@ -1,0 +1,56 @@
+// serie con impares y positivo y negativo.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+int fac(int n);
+float suma(float x,int n);
+
+void main()
+{
+	int n;
+	float x,s;
+	cout<<"ingrese un valor para x"<<endl;
+	cin>>x;
+	do{
+		cout<<"ingrese el valor hasta el cual desea seguir la serie(impar) "<<endl;
+		cin>>n;
+		if(n<0)
+			cout<<"no se puede calcular factorial de un numero negativo"<<endl;
+	  }while(n<0);
+	s=suma(x,n);
+	cout<<"la serie es:"<<s<<endl;	
+	getch();
+}
+	
+int fac(int n)
+{
+	int fact,i;
+	fact=1;
+	for(i=1;i<=n;i++)
+		{fact=fact*i;}
+	cout<<"el fact es: "<<fact<<endl;
+	return(fact);
+}
+
+
+float suma(float x,int n)
+{
+	int sig,c;
+	float s;
+	s=0;
+	c=1;
+	sig=1;
+	do{
+		s=s+(sig*((pow(x,c))/fac(c)));
+		c=c+2;
+		sig=sig*(-1);
+		cout<<"la suma va: "<<s<<endl;
+	  }while(c<=n);
+	return(s);
+}
