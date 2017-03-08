@@ -1,0 +1,119 @@
+// fechaliteral.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+int validar_dia_mes(int dia, int mes);
+int validar_anho(int anho, int siglo);
+void lit(int dia, int mes, int anho, int siglo);
+
+void main()
+{
+	int dia, mes, anho, siglo, valido;
+	do{
+		cout<<"INGRESE EL DIA (1-31): ";
+		cin>>dia;
+	}while((dia<=0)||(dia>31));
+	do{
+		do{
+			cout<<"INGRESE EL MES (1-12): ";
+			cin>>mes;
+			}while ((mes<=0)||(mes>12));
+		valido=validar_dia_mes(dia,mes);
+	}while (valido==1);
+	do{
+		cout<<"INGRESE EL ANHO (0-99): ";
+		cin>>anho;
+	}while((anho<0)||(anho>99));	
+	do{
+		cout<<"INGRESE EL SIGLO (20 o 21): ";
+		cin>>siglo;
+	}while((siglo!=20)&&(siglo!=21));	
+	lit(dia, mes, anho, siglo);
+	getch();
+}
+
+int validar_dia_mes(int dia, int mes)
+{
+	int valido=0;
+	if(((mes%2==0)&&(mes<=7))&&(dia==31))
+	{
+		cout<<"NO HAY DIA 31 EN ESE MES"<<endl;
+		valido=1;
+	}
+	if(((mes%2==1)&&(mes<=7))&&(dia==31))
+		{
+			valido=0;
+		}
+	if(((mes%2==1)&&(mes>7))&&(dia==31))
+	{
+		cout<<"NO HAY DIA 31 EN ESE MES"<<endl;
+		valido=1;
+	}
+	if(((mes%2==0)&&(mes>7))&&(dia==31))
+		{
+			valido=0;
+		}
+	
+	return (valido);
+}
+
+int validar_anho(int anho, int siglo)
+{
+	int ac;
+	if(siglo==21)
+		ac=anho+2000;
+	else
+		ac=anho+1900;
+	return (ac);
+}
+
+void lit(int dia, int mes, int anho, int siglo)
+{
+	int ac;
+	ac=validar_anho(anho,siglo);
+	switch(mes)
+	{
+		case 1: {cout<<"El "<<dia<<" de Enero del "<<ac;
+				break;
+				}
+		case 2: {cout<<"El "<<dia<<" de Febrero del "<<ac;
+				break;
+				}
+		case 3: {cout<<"El "<<dia<<" de Marzo del "<<ac;
+				break;
+				}
+		case 4: {cout<<"El "<<dia<<" de April del "<<ac;
+				break;
+				}
+		case 5: {cout<<"El "<<dia<<" de Mayo del "<<ac;
+				break;
+				}
+		case 6: {cout<<"El "<<dia<<" de Junio del "<<ac;
+				break;
+				}
+		case 7: {cout<<"El "<<dia<<" de Julio del "<<ac;
+				break;
+				}
+		case 8: {cout<<"El "<<dia<<" de Agosto del "<<ac;
+				break;
+				}
+		case 9: {cout<<"El "<<dia<<" de Septiembre del "<<ac;
+				break;
+				}
+		case 10: {cout<<"El "<<dia<<" de Octubre del "<<ac;
+				break;
+				}
+		case 11: {cout<<"El "<<dia<<" de Novembre del "<<ac;
+				break;
+				}
+		case 12: {cout<<"El "<<dia<<" de Diciembre del "<<ac;
+				break;
+				}
+	}
+}
