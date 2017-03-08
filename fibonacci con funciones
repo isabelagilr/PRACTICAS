@@ -1,0 +1,36 @@
+// fibonacci.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int fib(int n);
+
+void main()
+{	int n,fibo;
+	do{
+		cout<<"ingrese el n-esimo numero de la serie de fibonacci"<<endl;
+		cin>>n;
+	}while(n<=0);
+
+	fibo=fib(n);
+	cout<<"la serie es:"<<fibo<<endl;
+	getch();
+}
+
+int fib(int n)
+{	int a,b,fibo,c;
+	a=0;
+	b=1;
+	c=0;
+	do{
+		fibo=a+b;
+		a=b;
+		b=fibo;
+		c++;
+	}while(c<=n);
+	return(fibo);
+}
