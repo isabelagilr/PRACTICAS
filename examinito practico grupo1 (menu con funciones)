@@ -1,0 +1,95 @@
+// examinito1ergrupo.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+float cubo_real(float base);
+float descuentos(float sueldo);
+float raiz(float potenpi);
+void pot_raiz_pi(float pi);
+float sueldo_neto(float sueldo,float descuento);
+
+void main()
+{
+	int opcion;
+	float base,p3,pi,potenpi,descuento,sueldo,sueldoneto;
+	pi=3.1415;
+	do{
+		cout<<"-----------MENU---------"<<endl;
+		cout<<"OP.1 CALCULAR EL CUBO"<<endl;
+		cout<<"OP.2 CALCULAR POT Y RAIZ DE PI"<<endl;
+		cout<<"OP.3 CALCULAR EL SALARIO"<<endl;
+		cout<<"OP.0 SALIR"<<endl;
+		cout<<endl;
+		cout<<"ingrese una opcion"<<endl;
+		cin>>opcion;
+		
+		switch(opcion)
+		{	case 0:{cout<<"SALIR"<<endl;
+				break;}
+			case 1: { cout<<"ingrese la base:"<<endl;;
+				cin>>base;
+				p3=cubo_real(base);
+				cout<<"el cubo es:"<<p3<<endl;;
+				break;}
+			case 2: { pot_raiz_pi(pi);
+				break;}
+			case 3: { cout<<"ingrese el sueldo"<<endl;
+				 cin>>sueldo;
+				 descuento=descuentos(sueldo);
+				 cout<<"el descuento es:"<<descuento<<endl;
+				 sueldoneto=sueldo_neto(sueldo,descuento);
+				 cout<<"el sueldo neto es:"<<sueldoneto<<endl;
+				 break;}
+			default:
+			{ cout<<"no es una opcion"<<endl;}
+		}
+	}while(opcion!=0);
+	getch();
+}
+
+float cubo_real(float base)
+{
+	float p3;
+	p3=base*base*base;
+	return (p3);
+}
+
+void pot_raiz_pi(float pi)
+{	float potenpi,raizpi,i;
+	potenpi=pi;
+	for(i=2;i<=10;i++)
+		{potenpi=potenpi*pi;
+		cout<<"pi^"<<i<<"="<<potenpi<<endl;
+		raizpi=raiz(potenpi);
+		cout<<"la raiz de pi^"<<i<<"="<<raizpi<<endl;
+		}
+}
+float descuentos(float sueldo)
+{
+	float descuento;
+	if(sueldo<=1000)
+		descuento=sueldo*0.1;
+	if((sueldo>1000)&&(sueldo<=2000))
+		descuento=sueldo*0.15;
+	if(sueldo>2000)
+		descuento=sueldo=sueldo*0.18;
+	return(descuento);
+}
+float sueldo_neto(float sueldo,float descuento)
+{	float sueldoneto;
+	sueldoneto=sueldo-descuento;
+	return(sueldoneto);
+
+}
+
+float raiz(float potenpi)
+{	float raizpi;
+	raizpi=sqrt(potenpi);
+	return(raizpi);
+}
