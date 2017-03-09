@@ -1,0 +1,55 @@
+// menu con repeticion y cuenta acumulada.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+
+void main()
+{	int a,opcion,cuenta;
+	cuenta=0;
+
+		cout<<"                MENU            "<<endl;
+		cout<<"(0) hamburguesa con queso             10BS"<<endl;
+		cout<<"(1) hamburguesa con queso y tocino    14BS"<<endl;
+		cout<<"(2) hamburguesa con queso y huevo     13BS"<<endl;
+		cout<<"(3) papas                              4BS"<<endl;
+		cout<<"(4) soda                               5BS"<<endl;
+		cout<<"(cualquier otro numero)           CUENTA"<<endl;
+		cout<<endl;
+	do{
+		cout<<"ingrese la opcion que desea"<<endl;
+		cin>>opcion;
+	
+		switch(opcion){
+			case 0:
+				{cuenta=cuenta+10;
+				cout<<"la cuenta hasta el momento es:"<<endl;
+				cout<<endl;
+				break;}
+			case 1:
+				{cuenta=cuenta+14;
+				cout<<endl;
+				break;}
+			case 2:
+				{cuenta=cuenta+13;
+				cout<<endl;
+				break;}
+			case 3:
+				{cuenta=cuenta+4;
+				cout<<endl;
+				break;}
+			case 4:
+				{cuenta=cuenta+5;
+				cout<<endl;
+				break;}
+			default:
+				{cout<<"la CUENTA TOTAL es:"<<cuenta<<endl;
+				}
+		}
+	}while(opcion<=4);
+	getch();
+}
