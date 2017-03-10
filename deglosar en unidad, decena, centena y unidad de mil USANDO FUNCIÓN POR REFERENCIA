@@ -1,0 +1,42 @@
+// deglosar a unidad, decena, centena y unidad de mil.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void deglosar(int n, int &u, int &d, int &c, int &um);
+
+void main()
+{	int n,u,d,c,um;
+	do{
+		cout<<"ingresar un numero (0-9999)"<<endl;
+		cin>>n;
+	}while((n<0)||(n>9999));
+	deglosar(n,u,d,c,um);
+	cout<<"la unidad es:"<<u<<endl;
+	cout<<"la decena es:"<<d<<endl;
+	cout<<"la centena es:"<<c<<endl;
+	cout<<"la unidad de mil es:"<<um<<endl;
+	getch();
+}
+
+void deglosar(int n, int &u, int &d, int &c, int &um)
+{	int di;
+	di=n%10;
+	u=di;
+	n=n/10;
+
+	di=n%10;
+	d=di*10;
+	n=n/10;
+
+	di=n%10;
+	c=di*100;
+	n=n/10;
+
+	di=n%10;
+	um=di*1000;
+}
