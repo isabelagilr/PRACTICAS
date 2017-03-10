@@ -1,0 +1,73 @@
+// diferencia de horas con funciones.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+
+int calc_tiempo(int horas,int min, int seg);
+void comp_may_men(int t1, int t2, int &may, int &men);
+void convertir(int &may, int &men, int &hf, int &mf, int &sf);
+
+void main()
+{
+	int horas1,min1,seg1,horas2,min2,seg2,t1,t2,may,men,dif,hf,mf,sf;
+	cout<<"INGRESE EL TIEMPO 1: "<<endl;
+	do{cout<<"HORAS: "<<endl;
+		cin>>horas1;
+		}while((horas1<0)||(horas1>24));
+	do{cout<<"MIN: "<<endl;
+		cin>>min1;
+		}while((min1<0)||(min1>60));
+	do{cout<<"SEG: "<<endl;
+		cin>>seg1;
+		}while((seg1<0)||(seg1>60));
+	cout<<"INGRESE EL TIEMPO 2: "<<endl;
+	do{cout<<"HORAS: ";
+		cin>>horas2;
+		}while((horas2<0)||(horas2>24));
+	do{cout<<"MIN: "<<endl;
+		cin>>min2;
+		}while((min2<0)||(min2>60));
+	do{cout<<"SEG: "<<endl;
+		cin>>seg2;
+		}while((seg2<0)||(seg2>60));
+	t1=calc_tiempo(horas1,min1,seg1);
+	t2=calc_tiempo(horas2,min2,seg2);
+	comp_may_men(t1,t2,may,men);
+	convertir(may,men,hf,mf,sf);
+	cout<<"LA DIFERENCIA ENTRE ESOS TIEMPOS ES: "<<hf<<":"<<mf<<":"<<sf<<endl;
+	getch();
+}
+
+int calc_tiempo(int horas, int min, int seg)
+{
+	int t;
+	t=(horas*3600)+(min*60)+seg;
+	return t;
+}
+
+void comp_may_men(int t1, int t2, int &may, int &men)
+{
+	if(t1>t2)
+	{
+		may=t1;
+		men=t2;
+	}
+	else
+	{
+		may=t2;
+		men=t1;
+	}
+}
+void convertir(int &may, int &men, int &hf, int &mf, int &sf)
+{
+	int dif;
+	dif=may-men;
+	hf=dif/3600;
+	dif=dif%3600;
+	mf=dif/60;
+	sf=dif%60;
+}
