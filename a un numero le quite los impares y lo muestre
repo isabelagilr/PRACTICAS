@@ -1,0 +1,35 @@
+// que elimine los numeros impares.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+
+void main()
+{	int n,d,n1,n2;
+  n1=0;
+  n2=0;
+	do{
+		cout<<"ingrese un numero natural"<<endl;
+		cin>>n;
+	}while(n<0);
+  
+  do{d=n%10;
+		if(d%2==1)
+			n=n/10;
+		else
+			{n1=n1*10+d;
+			n=n/10;}
+	}while(n>0);
+  
+	do{d=n1%10;
+		n2=n2*10+d;
+		n1=n1/10;
+	}while(n1>0);
+  
+	cout<<"el numero sin impares es:"<<n2<<endl;
+	getch();
+}
