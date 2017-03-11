@@ -1,0 +1,38 @@
+// serie de par e impar.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std; //hace la siguiente secuencia impares--> 7,8,5,6,3,4,1,2
+// pares-->6,3,4,1,2
+
+void main() 
+{
+	int n,sig;
+	cout<<"ingrese un numero natural"<<endl;
+	cin>>n;
+	if(n%2==0)
+		{sig=1;
+			do{cout<<n;
+				if(sig==1)
+					n=n-3;
+				else
+					n=n+1;
+				sig=sig*-1;
+			}while(n>0);
+		}
+	else
+		{sig=1;
+			do{cout<<n;
+				if(sig==1)
+					n=n+1;
+				else
+					n=n-3;
+				sig=sig*-1;
+			}while(n>0);
+		}
+
+	getch();
+}
