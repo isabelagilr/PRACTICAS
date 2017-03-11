@@ -1,0 +1,32 @@
+// mayor y menor digito y que lo invierta.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std; 
+
+void main() 
+{
+	int n,d,may,n1,men;
+	cout<<"ingrese el numero"<<endl;
+		cin>>n;
+		may=0;
+		n1=0;
+		men=9;
+	do{
+		d=n%10;
+		n1=n1*10+d;
+		if(d>may)
+			may=d;
+		if(d<men)
+			men=d;
+		n=n/10;
+	}while(n>0);
+
+	cout<<"el mayor digito es:"<<may<<endl;
+	cout<<"el menor digito es:"<<men<<endl;
+	cout<<"el digito invertido es:"<<n1<<endl;
+	getch();
+}
