@@ -1,0 +1,126 @@
+// menu fac, pot, comb, conv decimal.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+#include "math.h"
+
+using namespace std;
+
+int factorial(int n);
+float potencia(float b);
+int combinatoria(int x, int r);
+int convertir(int base, int num);
+
+void main()
+{
+	int n,opcion,fac,x,r,base,num,d,val,numconv,n1;
+	float b,pot,comb;
+
+	do{ cout<<"         MENU"<<endl;
+		cout<<"(1)   FACTORIAL"<<endl;
+		cout<<"(2)   POTENCIA"<<endl;
+		cout<<"(3)   COMBINATORIA"<<endl;
+		cout<<"(4)   CONVERSION A DECIMAL"<<endl;
+		cout<<"(0)   SALIR"<<endl;
+
+		cout<<"Ingrese una opcion"<<endl;
+		cin>>opcion;
+
+		switch(opcion)
+			{
+			case 1:{do{
+						cout<<"ingresar un numero para calcular su factorial"<<endl;
+						cin>>n;
+					}while(n<=0);
+					fac=factorial(n);
+					cout<<"el factorial es:"<<fac<<endl;
+					break;}
+			case 2:{cout<<"Ingrese la base"<<endl;
+					cin>>b;
+					pot=potencia(b);
+					cout<<"la potencia es:"<<pot<<endl;
+					break;
+				   }
+			case 3:{cout<<"combinatoria(x,r)"<<endl;;
+					do{
+						cout<<"ingrese la variable x (positiva)"<<endl;
+						cin>>x;
+					}while(x<=0);
+					do{
+						cout<<"ingrese la variable r (positiva y menor a x)"<<endl;
+						cin>>r;
+					}while((r<=0)||(r>x));
+
+					comb=combinatoria(x,r);
+					cout<<"la combinatoria de("<<x<<","<<r<<")="<<comb<<endl;
+					break;
+				   }
+			case 4:{val=0;
+					do{
+						cout<<"ingrese la base que desea (2-9)"<<endl;;
+						cin>>base;
+				   }while((base>9)||(base<2));
+					do{
+						cout<<"ingrese el numero que desea (entero)"<<endl;
+						cin>>num;
+						n1=num;
+						do{	d=n1%10;
+							if((d==base)||(d>base))
+								{cout<<"el digito"<<d<<"no esta en la base correcta"<<endl;
+								val=1;
+								n1=n1/10;}
+							else
+							{n1=n1/10;}
+						}while(n1>0);
+				   }while(val==1);
+					numconv=convertir(base,num);
+					cout<<"el numero convertido en decimal es:"<<numconv<<endl;
+					break;}
+			case 0:{cout<<"SALIR"<<endl;
+					break;}
+			default:{cout<<"opcion invalida"<<endl;
+					break;}
+			}
+		}while(opcion!=0);
+	getch();
+}
+
+int factorial (int n)
+{int c,fac=1,c1=1;
+ for(c=1;c<=n;c++)
+ {fac=fac*c;
+ }
+ return (fac);
+}
+
+float potencia(float b)
+{	float pot;
+	int i;
+	pot=b;
+	for(i=1;i<2;i++)
+	pot=pot*b;
+	return (pot);
+}
+
+int combinatoria(int x, int r)
+{	
+	float comb;
+	comb=factorial(x)/(factorial(r)*factorial(x-r));
+	return(comb);
+}
+
+int convertir(int base, int num)
+{
+	int numconv,d,c;
+	numconv=0;
+	c=0;
+	do{d=num%10;
+	numconv=numconv+(d*powf(base,c));
+	num=num/10;
+	c++;
+	}while(num>0);
+	return(numconv);
+}
