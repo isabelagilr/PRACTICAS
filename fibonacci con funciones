@@ -25,12 +25,12 @@ int fib(int n)
 {	int a,b,fibo,c;
 	a=0;
 	b=1;
-	c=0;
+	c=2;
 	do{
 		fibo=a+b;
 		a=b;
 		b=fibo;
 		c++;
-	}while(c<=n);
+	}while(c<n);
 	return(fibo);
 }
