@@ -60,7 +60,7 @@ void main()
 				   }
 			case 4:{val=0;
 					do{
-						cout<<"ingrese la base que desea (2-9)"<<endl;;
+						cout<<"ingrese la base que desea (2-9)"<<endl;
 						cin>>base;
 				   }while((base>9)||(base<2));
 					do{
