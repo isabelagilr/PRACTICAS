@@ -1,0 +1,83 @@
+// mcm y mcd.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+int mcd_(int a, int b);
+int mcm_(int a, int b);
+
+void main()
+{	int opcion,a,b,mcd,mcm;
+	do{
+		cout<<"MENU"<<endl;
+		cout<<"(1) mcd de dos numeros"<<endl;
+		cout<<"(2) mcd de dos numeros"<<endl;
+		cout<<"(0)SALIR"<<endl;
+		cout<<"ingrese una opcion"<<endl;
+		cin>>opcion;
+
+		switch(opcion)
+		{
+			case 1:{
+				cout<<"ingrese el primer numero"<<endl;
+				cin>>a;
+				cout<<"ingrese el segundo numero"<<endl;
+				cin>>b;
+				mcd=mcd_(a,b);
+				cout<<"el mcd("<<a<<","<<b<<")="<<mcd<<endl;
+				break;
+				   }
+			case 2:{
+				cout<<"ingrese el primer numero"<<endl;
+				cin>>a;
+				cout<<"ingrese el segundo numero"<<endl;
+				cin>>b;
+				mcm=mcm_(a,b);
+				cout<<"el mcm("<<a<<","<<b<<")="<<mcm<<endl;
+				break;
+				   }
+			case 0:{
+				cout<<"SALIR"<<endl;
+				break;
+				   }
+			default:{
+				cout<<"OPCION INVALIDA"<<endl;
+				break;
+					}
+		}
+	}while(opcion!=0);
+	getch();
+}
+
+
+int mcd_(int a, int b)
+{	int men,c1,mcd,may;
+	c1=2;
+	mcd=1;
+	if(a<b)
+		{men=a;
+		may=b;}
+	else
+		{men=b;
+		may=a;}
+	do{
+		if((may%c1==0)&&(men%c1==0))
+			{men=men/c1;
+			may=may/c1;
+			mcd=mcd*c1;}
+		else 
+			c1++;
+	}while(c1<=men);
+	return(mcd);
+}
+
+int mcm_(int a, int b)
+{
+	int mcm;
+	mcm=(a*b)/(mcd_(a,b));
+	return(mcm);
+}
