@@ -58,12 +58,11 @@ void main()
 					cout<<"la combinatoria de("<<x<<","<<r<<")="<<comb<<endl;
 					break;
 				   }
-			case 4:{val=0;
-					do{
+			case 4:{	do{
 						cout<<"ingrese la base que desea (2-9)"<<endl;
 						cin>>base;
 				   }while((base>9)||(base<2));
-					do{
+					do{	val=0;
 						cout<<"ingrese el numero que desea (entero)"<<endl;
 						cin>>num;
 						n1=num;
