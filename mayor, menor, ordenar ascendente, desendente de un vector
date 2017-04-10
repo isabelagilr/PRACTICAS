@@ -1,0 +1,73 @@
+// vector cual es el msauotr.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define max 10
+
+using namespace std;
+
+void main()
+{
+	int vec[max],i,n,men,may,j,aux;
+	n=4;
+	
+	for(i=0;i<n;i++)
+	{
+		cout<<"vec["<<i<<"]=";
+		cin>>vec[i];
+	}
+	men=vec[0];
+	may=vec[0];
+	for(i=0;i<n-1;i++)
+	{
+		if(vec[i+1]<vec[i])
+		men=vec[i+1];
+		if(vec[i+1]>vec[i])
+		may=vec[i+1];
+	}
+	cout<<"el menor es:"<<men<<endl;
+	cout<<"el mayor es:"<<may<<endl;
+	aux=0;
+
+	cout<<"de mayor a menor"<<endl;
+	
+	for(i=0;i<n-1;i++)
+	{	for(j=i+1;j<n;j++)
+		{
+			if(vec[j]>vec[i])
+			{
+				aux=vec[i];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+	}
+
+	for(i=0;i<n;i++)
+	{
+		cout<<vec[i]<<endl;
+	}
+	cout<<"de menor a mayor"<<endl;
+	
+	for(i=0;i<n-1;i++)
+	{	for(j=i+1;j<n;j++)
+		{
+			if(vec[j]<vec[i])
+			{
+				aux=vec[i];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+	}
+
+	for(i=0;i<n;i++)
+	{
+		cout<<vec[i]<<endl;
+	}
+
+
+	getch();
+}
