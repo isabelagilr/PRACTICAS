@@ -1,0 +1,75 @@
+// kjhgd.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 20
+
+using namespace std;
+
+void main()
+{
+	int vec[MAX],n,vecpar[MAX], vecimpar[MAX];
+	int contpar=0, contimpar=0,partidario;
+	cout<<"ingreseee el tamanho del vector"<<endl;
+	cin>>n;
+
+	for(int i=0;i<n;i++)
+	{
+		cout<<"ingrese vec["<<i<<"]=";
+		cin>>vec[i];
+	}
+
+	for(int j=0;j<n;j++)
+	{
+		cout<<"vec["<<j<<"]="<<vec[j]<<endl;
+	}
+
+	for(int x=0;x<n;x++)
+	{
+		if(x%2==0)
+		{
+			vecpar[contpar]=vec[x];
+			contpar++;
+		}
+		else
+		{
+			vecimpar[contimpar]=vec[x];
+			contimpar++;
+		}
+
+	}
+	cout<<"solo pares"<<endl;
+	for(int j=0;j<contpar;j++)
+	{
+		cout<<"vec["<<j<<"]="<<vecpar[j]<<endl;
+	}
+	cout<<"solo impares"<<endl;
+	for(int j=0;j<contimpar;j++)
+	{
+		cout<<"vec["<<j<<"]="<<vecimpar[j]<<endl;
+	}
+
+	for(int a=0;a<contimpar;a++)
+	{
+		for(int r=0;r<contpar;r++)
+		{
+			if(vecimpar[a]>vecpar[r])
+			{
+			partidario=0;
+			}
+			else
+			{
+			partidario=1;
+			}
+		}
+
+	}
+	if(partidario==1)
+		cout<<"no es partidario"<<endl;
+	else
+		cout<<"es partidario"<<endl;
+
+	getch();
+}
