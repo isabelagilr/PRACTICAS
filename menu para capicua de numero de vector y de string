@@ -1,0 +1,113 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "stdlib.h"
+#include <string>
+#define max 10
+
+using namespace std;
+
+void main()
+{
+	int op;
+	do{
+		cout<<"            MENU"<<endl;
+		cout<<"(1) capicua de un numero"<<endl;
+		cout<<"(2) capicua de un vector"<<endl;
+		cout<<"(3) palindromo"<<endl;
+		cout<<"(0) SALIR"<<endl;
+		cout<<"ingrese una opcion"<<endl;
+		cin>>op;
+		
+		switch(op)
+		{case 1:
+			{
+				int num,d,num1=0,aux;
+				cout<<"ingrese un numero"<<endl;
+				cin>>num;
+				aux=num;
+				do{
+					d=num%10;
+					num1=num1*10+d;
+					num=num/10;
+				}while(num>0);
+				if(num1==aux)
+					cout<<"es capicua"<<endl;
+				else
+					cout<<"no es capicua"<<endl;
+				break;
+			}
+		case 2:
+			{
+				int n, vec[max], vec1[max],aux,p;
+				cout<<"ingrese el tamanho del vector"<<endl;
+				cin>>n;
+				for(int i=0;i<n;i++)
+				{
+					cout<<"ingrese vec["<<i<<"]=";
+					cin>>vec[i];
+					vec1[i]=vec[i];
+				}
+			
+				for(int k=0;k<n/2;k++)
+				{
+						aux=vec[k];
+						vec[k]=vec[n-1-k];
+						vec[n-1-k]=aux;
+				}
+		
+				for(int h=0;h<n;h++)
+				{
+				if(vec1[h]==vec[h])
+					p=1;
+				else
+					p=0;
+				}
+			if(p==1)
+				cout<<"es capicua";
+			else
+			cout<<"no es capicua";
+
+				break;
+			}
+		case 3:
+			{
+				
+				int l;
+				string nombre,nom1;
+				char aux;
+				cin.ignore();
+				cout<"ingrese un nombre";
+				getline(cin,nombre);
+				nom1=nombre;
+				l=nombre.length();
+				for(int i=0;i<l/2;i++)
+				{
+					aux=nombre[i];
+					nombre[i]=nombre[l-1-i];
+					nombre[l-1-i]=aux;
+				}
+
+				if(nom1.compare(nombre)==0)
+					cout<<"es palindromo";
+				else
+				cout<<"no es palindromo";
+
+				break;
+			}
+		case 0:
+			{
+				cout<<"SALIR"<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"no es una opcion"<<endl;
+				break;
+			}
+		}
+	}while(op!=0);
+
+getch();
+
+}
