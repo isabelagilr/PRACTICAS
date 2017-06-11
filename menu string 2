@@ -1,0 +1,229 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "stdlib.h"
+#include <string>
+#define max 10
+
+using namespace std;
+int fac(int c);
+
+void main()
+{
+	int op;
+	do{
+		cout<<"         MENU"<<endl;
+		cout<<"(1) leer datos string"<<endl;
+		cout<<"(2) uso de length para determinar la longitud de un string"<<endl;
+		cout<<"(3) uso de compare para determinar si dos cadenas son iguales"<<endl;
+		cout<<"(4) uso de elementos individuales (Numero de vocales en el nombre)"<<endl;
+		cout<<"(5) uso de elementos individuales con at (Numero de vocales en el nombre)"<<endl;
+		cout<<"(6) Sacar desde una letra hasta el final del string"<<endl;
+		cout<<"(7) sacar una parte del string"<<endl;
+		cout<<"(8) Intercambia string"<<endl;
+		cout<<"(9) Encuentra UN caracter en string"<<endl;
+		cout<<"(10) Invertir una frase (ver si es palindromo) "<<endl;
+		cout<<"(11) Quitar las vocales"<<endl;
+		cout<<"(0) SALIR"<<endl;
+		cout<<endl;
+		cout<<"ingrese una opcion"<<endl;
+		cin>>op;
+		
+		switch(op)
+		{case 1:
+			{
+				string palabra;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<palabra;
+				break;
+			}
+		case 2:
+			{	int longi;
+				string palabra;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				longi=palabra.length();
+				cout<<longi;
+				break;
+			}
+		case 3:
+			{	
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<"ingrese otra palabra"<<endl;
+				getline(cin,palabra1);
+				if(palabra.compare(palabra1)==0)
+					cout<<"son iguales"<<endl;
+				else
+					cout<<"no son iguales"<<endl;
+				break;
+			}
+		case 4:
+			
+			{	int longi,cont;
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				longi=palabra.length();
+				cont=0;
+				for(int i=0;i<longi;i++)
+				{
+					if(palabra[i]=='a'|| palabra[i]=='e'||palabra[i]=='i'||palabra[i]=='o'||palabra[i]=='u')
+					{
+						cont++;
+					}
+				}
+				cout<<"tiene "<<cont<<" vocales"<<endl;
+				break;
+			}
+		case 5:
+			{
+				int longi,cont;
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				longi=palabra.length();
+				cont=0;
+				for(int i=0;i<longi;i++)
+				{
+					if(palabra.at(i)=='a'|| palabra.at(i)=='e'||palabra.at(i)=='i'||palabra.at(i)=='o'||palabra.at(i)=='u')
+					{
+						cont++;
+					}
+				}
+				cout<<"tiene "<<cont<<" vocales"<<endl;
+				break;
+			}
+		case 6:
+			{
+				int longi,pos;
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<"ingrese desde que posicion desea substraer hasta el final"<<endl;
+				cin>>pos;
+				pos=pos-1;
+				palabra1=palabra.substr(pos);
+				cout<<"la palabra queda:"<<palabra1<<endl;
+				break;
+			}
+		case 7:
+			{
+				int longi,pos,pos1;
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<"ingrese desde que posicion desea substraer"<<endl;
+				cin>>pos;
+				pos=pos-1;
+				cout<<"ingrese cuantas letras contando con la primera desea substraer"<<endl;
+				cin>>pos1;
+				palabra1=palabra.substr(pos,3);
+				cout<<"la palabra queda:"<<palabra1<<endl;
+				break;
+			}
+		case 8:
+			{
+				int longi,pos,pos1;
+				string palabra,palabra1;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<"ingrese otra una palabra"<<endl;
+				getline(cin,palabra1);
+				palabra.swap(palabra1);
+				cout<<"ahora la primer palabra es:"<<palabra<<endl;
+				cout<<"ahora la segunda palabra es:"<<palabra1<<endl;
+
+				break;
+			}
+		case 9:
+			{
+				string palabra;
+				int posletra=-1;
+				char x;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				cout<<"ingrese la letra que quiere ver si existe"<<endl;
+				cin>>x;
+				posletra=palabra.find(x);
+				if(posletra>=0)
+				cout<<"la posicion de la letra "<<x<<" es:"<<posletra+1<<endl;
+				else
+				cout<<"no existe esa letra dentro de la palabra"<<endl;
+				break;
+			}
+		case 10:
+			{
+				string palabra,palabra1;
+				int longi,a;
+				char aux;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				palabra1=palabra;
+				longi=palabra.length();
+				a=longi;
+				for(int i=0;i<longi/2;i++)
+				{
+					aux=palabra[i];
+					palabra[i]=palabra[a-1-i];
+					palabra[a-1-i]=aux;
+
+				}
+				if(palabra1==palabra)
+					cout<<"si es palindromo"<<endl;
+				else
+					cout<<"no es palindromo"<<endl;
+
+				break;
+			}
+		case 11:
+			{
+				string palabra,palabra1;
+				int longi,novoc;
+				cout<<"ingrese una palabra"<<endl;
+				cin.ignore();
+				getline(cin,palabra);
+				longi=palabra.length();
+				novoc=0;
+				palabra1=palabra;
+				for(int i=0;i<longi;i++)
+				{
+					if(palabra[i]!='a'&& palabra[i]!='e'&& palabra[i]!='i' && palabra[i]!='o' && palabra[i]!='u')
+					{
+						palabra1[novoc]=palabra[i];
+						novoc++;
+					}
+				}
+				palabra1=palabra1.substr(0,novoc);
+				cout<<palabra1;
+				break;
+			}
+
+		case 0:
+			{
+				cout<<"SALIR"<<endl;
+				break;
+			}
+		default:
+			{
+				cout<<"no es una opcion"<<endl;
+				break;
+			}
+		}
+	}while(op!=0);
+
+getch();
+
+}
