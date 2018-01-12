@@ -1,0 +1,32 @@
+// mas grande y mas chico con el digito elegido.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdio.h"
+
+using namespace std;
+
+int potencia(int x, int y)
+{	
+	int cont=1, pot=1;
+		while(cont<=y)
+		{
+			pot=pot*x;
+			cont++;
+		}
+	return(pot);
+}
+void main()
+{
+	int dig,may,men;
+	cout<<"ingrese la cantidad de digitos"<<endl;
+	cin>>dig;
+	men=potencia(10,dig-1);
+	may=(potencia(10,dig))-1;
+
+	cout<<"el numero mas grande con "<<dig<<"es "<<may<<endl;
+	cout<<"el numero mas chico con "<<dig<<" es" <<men<<endl;
+	getch();
+}
