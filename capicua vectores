@@ -1,0 +1,18 @@
+void capicua(int v[],int n)
+{
+	int i=0,band=1;
+	
+	while(i<n)
+	{
+		if(v[i]!=v[n-1-i])
+		{
+			band=0;
+		}
+		i++;
+	}
+
+	if(band==1)
+		cout<<"es capicua";
+	else
+		cout<<"no es capicua";
+}
